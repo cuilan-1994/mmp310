@@ -53,7 +53,7 @@ function setting() {
 	
 	// trees
 	for (let x = 100; x <= width; x += 400) {
-		image(treeImage, random(width), height/2 - 150 + x/20);
+		image(tree, random(width), height/2 - 150 + x/20);
 	}
 
 	
@@ -62,7 +62,7 @@ function setting() {
 	for (let x = -50; x <= width; x += 200) {
 		let y = random(height/3);
 		let offset = random(-100, 100);
-		image(cloudImage, x + offset, y);
+		image(brid, x + offset, y);
 
 		// image(cloudImage, random(width), random(height));
 	}
