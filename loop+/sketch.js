@@ -15,11 +15,11 @@ function preload() {
 }
 
 var miniLX =200;  
-var miniLY =150;
+var miniLY =50;
 
 
 var miniRX =800;  
-var miniRY =150;
+var miniRY =50;
 
 
  
