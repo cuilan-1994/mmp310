@@ -15,11 +15,11 @@ function preload() {
 }
 var bridX=[];
 var bridY=[];
-var numbrids=5;
+var numBrids=5;
 
 var treeX=[];
 var treeY=[];
-var numtrees=4;
+var numTrees=4;
 
 var miniLX =200;  
 var miniLY =50;
@@ -32,17 +32,18 @@ var miniRY =50;
  
 function setup() {
 	createCanvas(windowWidth, windowHeight);
+   
 	// add brid positions
 	let x = -50;
-	for (let i = 0; i < numbrids; i++) {
+	for (let i = 0; i < numBrids; i++) {
 		bridX.push( x );
 		
-		x += width/numbrids + random(-100, 100);
+		x += width/numBrids + random(-100, 100);
 		bridY.push( random(height/3) );
 	}
     // add tree positions
 	let y = 250;
-	for (let i = 0; i < numtrees; i++) {
+	for (let i = 0; i < numTrees; i++) {
 		treeX.push(random(treeImage.width, width - treeImage.width));
 		treeY.push(y);
 		y += 30;
@@ -59,10 +60,10 @@ function draw() {
 	rect(0, height/2, width, height/2);
     
 	// draw characters
-	image(miniL, miniLX, miniLY);
-	image(miniR, miniRX, miniRY);
+	//image(miniL, miniLX, miniLY);
+	//image(miniR, miniRX, miniRY);
    //brid
-   for (let i = 0; i <  numbrids; i++) {
+   for (let i = 0; i <  numBrids; i++) {
 		image(bridImage, bridX[i], bridY[i]);
 
 		// animate x
@@ -74,24 +75,9 @@ function draw() {
 			bridX[i] = -bridImage.width;
 		}
 	} 
-	//tree
-    for (let i = 0; i < numtrees; i++) {
+	// trees
+	for (let i = 0; i < numTrees; i++) {
 		image(treeImage, treeX[i], treeY[i]);
-
-		// animate
-		treeX[i] += treeSpeedX[i] + random(1);
-		tree[i] += treeSpeedY[i] + random(-1, 2);
-
-		// reset 
-		if (treeX[i] > width) {
-			treeX[i] = -treeImage.width;
-		}
-
-		// contain y value of 
-		if (treeY[i] < height * 2/3 || 
-			treeY[i] > height - treeImage.height) {
-			treeSpeedY[i] *= -1;
-		}
 	}
 }
 
