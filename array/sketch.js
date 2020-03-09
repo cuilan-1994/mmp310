@@ -19,7 +19,7 @@ var numBrids=5;
 
 var treeX=[];
 var treeY=[];
-var numTrees=4;
+var numTrees=2;
 
 var miniLX =200;  
 var miniLY =50;
@@ -42,9 +42,9 @@ function setup() {
 		bridY.push( random(height/3) );
 	}
     // add tree positions
-	let y = 250;
+	let y = 300;
 	for (let i = 0; i < numTrees; i++) {
-		treeX.push(random(treeImage.width, width - treeImage.width));
+		treeX.push(random(tree.width, width - tree.width));
 		treeY.push(y);
 		y += 30;
 	}
@@ -60,11 +60,11 @@ function draw() {
 	rect(0, height/2, width, height/2);
     
 	// draw characters
-	//image(miniL, miniLX, miniLY);
-	//image(miniR, miniRX, miniRY);
+	image(miniL, miniLX, miniLY+200);
+	image(miniR, miniRX-150, miniRY+300);
    //brid
    for (let i = 0; i <  numBrids; i++) {
-		image(bridImage, bridX[i], bridY[i]);
+		image(brid, bridX[i], bridY[i]);
 
 		// animate x
 		bridX[i] += 1;
@@ -77,7 +77,7 @@ function draw() {
 	} 
 	// trees
 	for (let i = 0; i < numTrees; i++) {
-		image(treeImage, treeX[i], treeY[i]);
+		image(tree, treeX[i], treeY[i]);
 	}
 }
 
