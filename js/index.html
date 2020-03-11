@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       
+        <title> JS workshop</title>
+        <link rel="stylesheet" href="styles.css"/>
+        <script src="granim.min.js"></script>
+    </head>
+       
+    <body>
+           
+         <canvas id="canvas-basic"></canvas>
+          <h1> Lan.cui</h1>
+     </body>   
+          <script>
+              var granimInstance = new Granim({
+    element: '#canvas-basic',
+    direction: 'left-right',
+    isPausedWhenNotInView: true,
+    states : {
+        "default-state": {
+            gradients: [
+                ['#ff9966', '#ff5e62'],
+                ['#067950', '#0575E6'],
+                ['#e14ce3', '#f0ffff']
+            ]
+        }
+    }
+});
+        </script>  
+   
+</html>
