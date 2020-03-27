@@ -7,21 +7,22 @@ var brid;
 
 
 function preload() {
-	 miniL = loadImage('MinionsL.png');
-	 miniR = loadImage('MinionsR.png');
+
+	 mini = loadImage('MinionsR.png');
      tree= loadImage('tree.png');
     brid= loadImage('brid.png');
                    
 }
 
-var miniLX =200;  
-var miniLY =50;
 
+var mini=[];
+var nummini= 2;
 
-var miniRX =800;  
-var miniRY =50;
+var  tree =[];
+var numtree= 3;
 
-
+var  brid=[];
+var nunbrid=7;
  
 function setup() {
 	createCanvas(windowWidth, windowHeight);
