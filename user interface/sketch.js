@@ -1,25 +1,21 @@
-/*
-	user interface
-	3.24.2020
-*/
 
 var bridImage, treeImage, miniImage;
 
 function preload() {
 	bridImage = loadImage("brid.png");
 	treeImage = loadImage("tree.png");
-	cminiImage = loadImage("mijni.png");
+	miniImage = loadImage("mini.png");
 }
 
 // global values
-var beids = []; // empty array/list
-var numClouds = 5;
+var brids = []; 
+var numBrids = 5;
 
 var trees = [];
 var numTrees = 3;
 
 var mini = [];
-var nummini = 6;
+var numMini = 6;
 
 // interface values
 var skyHue = 195;
@@ -43,7 +39,7 @@ function setup() {
 	for (let i = 0; i < numBrids; i++) {
 		let x = random(width);
 		let y = random(height/2);
-		let cloud = new Brid(x, y, bridImage);
+		let brid = new Brid(x, y, bridImage);
 		brids.push(brid);
 	}
 
@@ -57,8 +53,8 @@ function setup() {
 	for (let i = 0; i < numMini; i++) {
 		let x = random(width);
 		let y = random(height * 2/3, height);
-		let f = new Fish(x, y, miniImage);
-		mini.push(m);
+		let f = new Mini(x, y, miniImage);
+		mini.push(mini);
 	}
 
 	var hueLabel = createElement("label", "Change the sky");
@@ -66,11 +62,11 @@ function setup() {
 
 	// user interface
 	hueSlider = createSlider(10, skyHue, skyHue);
-	hueSlider.position(10, 30);
+	hueSlider.position(15, 35);
 	hueSlider.input(updateHue);
 
 	var miniSpeedLabel = createElement("label", "Change mini speed");
-	miniSpeedLabel.position(180, 10);
+	miniSpeedLabel.position(170, 10);
 
 	miniSpeedSlider = createSlider(1, 10, miniMinSpeed);
 	miniSpeedSlider.position(180, 30);
@@ -108,8 +104,7 @@ function updateBeach() {
 }
 
 function draw() {
-	// sky
-	// lightblue 195, 53%, 79%
+
 	colorMode(HSB, 360, 100, 100);
 	background(skyHue, 53, 79);
 
@@ -122,18 +117,18 @@ function draw() {
 	rect(0, height * 2/3, width, height/3);
 
 
-	// draw trees
+	//  trees
 	for (let i = 0; i < numTrees; i++) {
 		trees[i].draw();
 	}
 
-	// draw mini
+	// mini
 	for (let i = 0; i < numMini; i++) {
 		mini[i].draw();
 		mini[i].update();
 	}
 
-	// draw clouds
+	// brid
 	for (let i = 0; i < numBrids; i++) {
 		brids[i].draw();
 		brids[i].update();
