@@ -54,7 +54,7 @@ function setup() {
 		let x = random(width);
 		let y = random(height * 2/3, height);
 		let f = new Mini(x, y, miniImage);
-		mini.push(mini);
+		mini.push(f);
 	}
 
 	var hueLabel = createElement("label", "Change the sky");
