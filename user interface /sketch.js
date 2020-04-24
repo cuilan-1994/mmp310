@@ -1,54 +1,64 @@
+/*
+	user interface
+	3.24.2020
+*/
 
-
-
-var bridImage, treeImage;
+var bridImage, treeImage, miniImage;
 
 function preload() {
 	bridImage = loadImage("brid.png");
 	treeImage = loadImage("tree.png");
-	
+	cminiImage = loadImage("mijni.png");
 }
 
 // global values
+var beids = []; // empty array/list
+var numClouds = 5;
 
 var trees = [];
 var numTrees = 3;
 
-var brid = [];
-var numBrid = 5;
+var mini = [];
+var nummini = 6;
 
 // interface values
-var skyHue = 105;
+var skyHue = 195;
 var hueSlider;
 
-var bridMinSpeed = 2;
-var bridMaxSpeed = 4;
-var bridSpeedSlider;
+var miniMinSpeed = 2;
+var miniMaxSpeed = 4;
+var miniSpeedSlider;
 
-var landY;
-var landSlider;
+var beachY;
+var beachSlider;
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
 	noStroke();
 
-	landY = height/2;
+	beachY = height/2;
 
 	// create our things
 
+	for (let i = 0; i < numBrids; i++) {
+		let x = random(width);
+		let y = random(height/2);
+		let cloud = new Brid(x, y, bridImage);
+		brids.push(brid);
+	}
 
 	for (let i = 0; i < numTrees; i++) {
 		let x = random(width);
-		let y = random(height/3, landY);
+		let y = random(height/3, beachY);
 		let tree = new Thing(x, y, treeImage);
 		trees.push(tree);
 	}
 
-	for (let i = 0; i < numBrid; i++) {
+	for (let i = 0; i < numMini; i++) {
 		let x = random(width);
-		let y = random(height/2);
-		let brid = new Brid(x, y, bridImage);
-		brid.push(brid);
+		let y = random(height * 2/3, height);
+		let f = new Fish(x, y, miniImage);
+		mini.push(m);
 	}
 
 	var hueLabel = createElement("label", "Change the sky");
@@ -59,41 +69,41 @@ function setup() {
 	hueSlider.position(10, 30);
 	hueSlider.input(updateHue);
 
-	var bridSpeedLabel = createElement("label", "Change drid speed");
-	bridSpeedLabel.position(180, 10);
+	var miniSpeedLabel = createElement("label", "Change mini speed");
+	miniSpeedLabel.position(180, 10);
 
-	bridSpeedSlider = createSlider(1, 10, bridMinSpeed);
-    bridSpeedSlider.position(180, 30);
-	bridSpeedSlider.input(updatebridSpeed);
+	miniSpeedSlider = createSlider(1, 10, miniMinSpeed);
+	miniSpeedSlider.position(180, 30);
+	miniSpeedSlider.input(updateMiniSpeed);
 
 	
 
-	var beachLabel = createElement("label", "land");
+	var beachLabel = createElement("label", "Beach");
 	beachLabel.position(360, 10);
 
-	landSlider = createSlider(100, landY, landY);
-	landSlider.position(360, 30);
-	landSlider.input(updateland);
+	beachSlider = createSlider(100, beachY, beachY);
+	beachSlider.position(360, 30);
+	beachSlider.input(updateBeach);
 }
 
 function updateHue() {
 	skyHue = hueSlider.value();
 }
 
-function updateBridSpeed() {
-	bridMinSpeed = bridSpeedSlider.value();
-    bridMaxSpeed = bridMinSpeed * 2;
+function updateMiniSpeed() {
+	miniMinSpeed = miniSpeedSlider.value();
+	miniMaxSpeed = miniMinSpeed * 2;
 
-	for (let i = 0; i < numFish; i++) {
-		brid[i].xSpeed = random(bridMinSpeed, bridMaxSpeed);
+	for (let i = 0; i < numMini; i++) {
+		mini[i].xSpeed = random(miniMinSpeed, miniMaxSpeed);
 	}
 }
 
-function updateLand() {
-	landY = landSlider.value();
+function updateBeach() {
+	beachY = beachSlider.value();
 
 	for (let i = 0; i < numTrees; i++) {
-		trees[i].y = random(height/3, landY);
+		trees[i].y = random(height/3, beachY);
 	}
 }
 
@@ -103,20 +113,29 @@ function draw() {
 	colorMode(HSB, 360, 100, 100);
 	background(skyHue, 53, 79);
 
-	// land
+	// beach
 	fill('BLANCHEDALMOND');
 	rect(0, beachY, width, height);
+
+	// ocean
+	fill('MIDNIGHTBLUE');
+	rect(0, height * 2/3, width, height/3);
+
 
 	// draw trees
 	for (let i = 0; i < numTrees; i++) {
 		trees[i].draw();
 	}
 
-	// brids
-	for (let i = 0; i < numBrid; i++) {
-		brid[i].draw();
-		brid[i].update();
+	// draw mini
+	for (let i = 0; i < numMini; i++) {
+		mini[i].draw();
+		mini[i].update();
 	}
 
-
+	// draw clouds
+	for (let i = 0; i < numBrids; i++) {
+		brids[i].draw();
+		brids[i].update();
+	}
 }
