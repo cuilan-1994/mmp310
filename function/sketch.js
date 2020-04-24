@@ -2,38 +2,32 @@
 
 var miniLImage;  
 var miniRImage;
-var boss;
+var bossImage;
 var jappanImage;
 var parisImage;
 var nyImage;
+
 function preload() {
-	 miniL = loadImage('MinionsL.png');
-	 miniR = loadImage('MinionsR.png');
-     boss = loadImage('boss.jpg');
+	 miniLImage= loadImage('MinionsL.png');
+	 miniRImage= loadImage('MinionsR.png');
+     bossImage= loadImage('boss.jpg');
      jappanImage =loadImage('japan.jpg');
      parisImage=loadImage('paris.jpg');
      nyImage=loadImage('ny.jpg');
 }
-
-
-
-var bossX =500;  
-var bossY =150;
- // jappan paris newyork endding
-
+// jappan paris, newyork, ending
 var currentSetting ="jappan";
 
 function setup() { 
     createCanvas(windowWidth, windowHeight);
-
+    
 }
 function draw() {
     if (currentSetting == "jappan") {
+        
         jappan();
-        imageMode(CORNER);
-      //  image(jappan, 0, 0);
-        miniRX =100;  
-         miniLX =500;
+        miniRX(100, height * 2/3); 
+         miniLX(300, height * 2/3);
         narration("Bob and kevin are findding their boss in Jappan.")
     } 
     else if (currentSetting == "paris") {
@@ -64,8 +58,8 @@ function draw() {
     
 	
 }
-  intructions();
-
+  
+/* character functions */
 function miniL(x, y) {
 	image(miniLImage, x, y);
 }
@@ -121,10 +115,8 @@ function mousePressed() {
        
    
   } else if (currentSetting == "newyork") {
-		currentSetting = "jappan";
+		currentSetting = "endding";
 		
-		miniRX =700;  
-         miniLX =500;
          
 	}
     
