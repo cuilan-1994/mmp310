@@ -9,7 +9,7 @@ function preload() {
 
 // global values
 var brids = []; 
-var numBrids = 5;
+var numBrids = 3;
 
 var trees = [];
 var numTrees = 3;
@@ -109,11 +109,11 @@ function draw() {
 	background(skyHue, 53, 79);
 
 	// beach
-	fill('BLANCHEDALMOND');
+	fill('#e6d5a8');
 	rect(0, beachY, width, height);
 
 	// ocean
-	fill('MIDNIGHTBLUE');
+	fill('#0094ad');
 	rect(0, height * 2/3, width, height/3);
 
 
