@@ -15,24 +15,24 @@ var trees = [];
 var numTrees = 3;
 
 var mini = [];
-var numMini = 6;
+var numMini = 3;
 
 // interface values
 var skyHue = 195;
 var hueSlider;
 
-var miniMinSpeed = 2;
-var miniMaxSpeed = 4;
+var miniMinSpeed = 1;
+var miniMaxSpeed = 2;
 var miniSpeedSlider;
 
-var beachY;
-var beachSlider;
+var landY;
+var landSlider;
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
 	noStroke();
 
-	beachY = height/2;
+	landY = height/2;
 
 	// create our things
 
@@ -45,7 +45,7 @@ function setup() {
 
 	for (let i = 0; i < numTrees; i++) {
 		let x = random(width);
-		let y = random(height/3, beachY);
+		let y = random(height/3, landY);
 		let tree = new Thing(x, y, treeImage);
 		trees.push(tree);
 	}
@@ -74,12 +74,12 @@ function setup() {
 
 	
 
-	var beachLabel = createElement("label", "Beach");
-	beachLabel.position(360, 10);
+	var landLabel = createElement("label", "Land");
+	landLabel.position(360, 10);
 
-	beachSlider = createSlider(100, beachY, beachY);
-	beachSlider.position(360, 30);
-	beachSlider.input(updateBeach);
+	landSlider = createSlider(100, landY, landY);
+	landSlider.position(360, 30);
+	landSlider.input(updateLand);
 }
 
 function updateHue() {
@@ -95,11 +95,11 @@ function updateMiniSpeed() {
 	}
 }
 
-function updateBeach() {
-	beachY = beachSlider.value();
+function updateLand() {
+	landY = landSlider.value();
 
 	for (let i = 0; i < numTrees; i++) {
-		trees[i].y = random(height/3, beachY);
+		trees[i].y = random(height/3, landY);
 	}
 }
 
@@ -108,12 +108,12 @@ function draw() {
 	colorMode(HSB, 360, 100, 100);
 	background(skyHue, 53, 79);
 
-	// beach
+	// land
 	fill('#e6d5a8');
-	rect(0, beachY, width, height);
+	rect(0, landY, width, height);
 
-	// ocean
-	fill('#0094ad');
+	// road
+	fill('#92979c');
 	rect(0, height * 2/3, width, height/3);
 
 
