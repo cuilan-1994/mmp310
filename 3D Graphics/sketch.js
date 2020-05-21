@@ -1,15 +1,9 @@
-/*
-	3d graphics example
-	4.5.2020
-*/
-
-var rotX, rotY, rotZ;
+ var rotX, rotY, rotZ;
 
 function setup() {
 	createCanvas(windowWidth, windowHeight, WEBGL);
 
 	createP("Scene controls").position(10, 0);
-
 	rotX = createSlider(-TWO_PI, TWO_PI, 0, TWO_PI / 360);
 	rotX.position(10, 20);
 
@@ -25,13 +19,12 @@ function draw() {
 	background(51);
 
 	noStroke();
-	// lights();
 
-	ambientLight(35, 35, 50);
 
-	// direction values -1, 1
-	directionalLight(255, 220, 220, 1, 1, -1);
+	ambientLight(75, 75, 12);
+
 	
+	directionalLight(250, 200, 200, 1, 1, -1);
 	pointLight(255, 255, 255, mouseX - width/2, mouseY - height/2, 150);
 
 
@@ -41,34 +34,76 @@ function draw() {
 	push();
 	translate(0, 200, 0);
 	rotateX(PI * 0.5);
-	plane(1000, 1000);
+	plane(800, 500);
 	pop();
 
 
-	ambientMaterial(221, 160, 221);
-	
+	ambientMaterial(111, 79, 21);
+	specularMaterial(111, 79, 21);
+	shininess(255);
 
 	rotateX(rotX.value());
 	rotateY(rotY.value());
 	rotateZ(rotZ.value());
 
-	box(100, 200, 50);
-
+	
+	
+	ellipsoid(150, 150, 100); // head
+    
+	
+	// left ear
 	push();
-	translate(0, -50, 0);
-	cylinder(100, 50, 24, 1);
+    translate(-130, -90);
+	rotateZ(PI * 0.8);
+	
+	torus(25, 10);
 	pop();
 
-	specularMaterial(200, 200, 255);
-	shininess(200);
-
+	// left ear
 	push();
-	translate(200, 0, 0);
-	sphere(100, 24, 24);
+	translate(130, -90);
+	rotateZ(PI * 1.2);
+	torus(25, 10);
 	pop();
 
+
+	specularMaterial(255, 215, 0);
+
+	// left eye
 	push();
-	translate(-200, 0, 0);
-	torus(100, 20, 16, 16);
+	translate(-50, -25,100 );
+	rotateX(PI * 0.1);
+	rotateY(PI * -0.1);
+	sphere(20);
 	pop();
+
+    push();
+	translate(-50, -20,120 );
+	specularMaterial(8, 7, 7);
+	sphere(5);
+	pop()
+    
+	// right eye
+	push();
+	translate(50, -25, 100);
+	rotateX(PI * 0.1);
+	rotateY(PI * -0.1);
+	sphere(20);
+	pop();
+
+    push();
+	translate(50, -20, 120);
+	specularMaterial(8, 7, 7);
+	sphere(5);
+
+	pop();
+
+
+	// mouth
+	specularMaterial(214, 95, 11);
+	push();
+	translate(0, 50, 90);
+    box(70, 10, 70);
+	pop();
+
 }
