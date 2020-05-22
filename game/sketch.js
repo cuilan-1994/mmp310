@@ -35,6 +35,7 @@ function preload() {
     img1 = loadImage("virus.png");
     img2 = loadImage("street.jpg");
     img3 = loadImage("kim.png");
+    img4 = loadImage("clean.jpg");
 }
 
 
@@ -54,13 +55,13 @@ function draw() {
 
 
 
-    // add random power ups
+    // add  power ups
     if (random(1000) > 998) {
         upgrade.push(new Upgrade());
     }
 
 
-    // adds random asteroid
+    // adds asteroid
     if (random(100) > 97) {
         // create an asteroid
         if (random(100) > 95)
@@ -159,7 +160,6 @@ function draw() {
 
 
 	/* user display */
-	
 	
 	
 	// lives
