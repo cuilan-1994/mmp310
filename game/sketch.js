@@ -125,8 +125,8 @@ function draw() {
 
         // detect all lasers
         for (let j = 0; j < lasers.length; j++) {
-            if (asteroids[i].collide(lasers[j])) {
-                asteroids[i].died = true;
+            if (virus[i].collide(lasers[j])) {
+               virus[i].died = true;
                 lasers[j].died = true;
                 
             }
@@ -139,7 +139,7 @@ function draw() {
 
     }
 
-    // clean up dead asteroids and lasers
+    // clean up dead virus and lasers
     for (let i = 0; i < virus.length; i++) {
         if (virus[i].died) {
             virus[i].remove(virus);
