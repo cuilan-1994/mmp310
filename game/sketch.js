@@ -104,7 +104,7 @@ function draw() {
     }
 
 
-    for (let i = 0; i < asteroids.length; i++) {
+    for (let i = 0; i < virus.length; i++) {
         asteroids[i].display();
         asteroids[i].update();
 
