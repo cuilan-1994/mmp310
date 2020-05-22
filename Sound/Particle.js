@@ -10,7 +10,7 @@ class Particle {
 		this.color = createVector(random(20), random(20), random(50, 10));
 		this.colorSpeed = createVector(173, 4, 1);
         
-        random(smlies).play();
+        random(smiles).play();
 	}
 
 	update() {
