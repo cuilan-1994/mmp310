@@ -9,8 +9,9 @@ class Particle {
 
 		this.color = createVector(random(20), random(20), random(50, 10));
 		this.colorSpeed = createVector(173, 4, 1);
+        
+        random(smlies).play();
 	}
-    
 
 	update() {
 		this.position.add(this.speed);
@@ -18,6 +19,28 @@ class Particle {
 		this.color.add(this.colorSpeed);
 		this.rotation.add(this.rotationSpeed);
 		this.lifespan -= 1.5;
+        
+        // box collisions 
+		if (this.position.x < -boxSize / 2||
+			this.position.x > boxSize / 2) {
+			this.speed.x *= -1;
+			this.acceleration.x *= -1;
+			random(hits).play();
+		}
+
+		if (this.position.y < -boxSize / 2 ||
+			this.position.y > boxSize / 2) {
+			this.speed.y *= -1;
+			this.acceleration.y *= -1;
+			random(hits).play();
+		}
+
+		if (this.position.z < -boxSize / 2||
+			this.position.z > boxSize / 2) {
+			this.speed.z *= -1;
+			this.acceleration.z *= -1;
+			random(hits).play();
+		}
 	}
 
 	display() {
