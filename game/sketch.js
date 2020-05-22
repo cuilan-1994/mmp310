@@ -35,6 +35,7 @@ function preload() {
     img1 = loadImage("virus.png");
     img2 = loadImage("street.jpg");
     img3 = loadImage("kim.png");
+    img4 = loadImage("clean.jpg");
 }
 
 
