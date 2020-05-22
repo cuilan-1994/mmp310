@@ -1,20 +1,18 @@
-
-	//final 
+/*
+	mmp 310 week 9
+	
+*/
 
 
 
 	// score
-// one point for every asteroid destroyed
 var score = 0;
-
-// player lives
 var lives = 3;
 	
 
-
 var spaceship;
 
-var virus = [];
+var asteroids = [];
 
 var upgrade = [];
 
@@ -22,7 +20,7 @@ var lasers = [];
 
 var laserSize = 1;
 
-var laserColor = "white";
+var laserColor = "red";
 
 //var astriodProb = 98;
 var laserCounter = 0; // counts frame each time
@@ -34,6 +32,7 @@ var laserCounter = 0; // counts frame each time
 function preload() {
     // if you have images
 
+   
     img1 = loadImage("virus.png");
     img2 = loadImage("street.jpg");
     img3 = loadImage("kim.png");
@@ -66,9 +65,9 @@ function draw() {
     if (random(100) > 97) {
         // create an asteroid
         if (random(100) > 95)
-            virus.push(new Virus());
+            asteroids.push(new Asteroid());
         else
-            virus.push(new Virus());
+            asteroids.push(new Asteroid());
     }
 
 
@@ -92,7 +91,7 @@ function draw() {
 
 
             //			laserRed += 20;
-            laserColor = "white";
+            laserColor = "yellow";
             laserSize += 2;
             upgrade[i].died = true;
         }
@@ -103,7 +102,7 @@ function draw() {
     }
 
 
-    for (let i = 0; i < virus.length; i++) {
+    for (let i = 0; i < asteroids.length; i++) {
         asteroids[i].display();
         asteroids[i].update();
 
@@ -115,8 +114,8 @@ function draw() {
             // end game
             textAlign(CENTER, CENTER);
             textSize(100);
-            fill('yellow');
-			text("die", width/2, height/2);
+            fill('red');
+			text("GAME OVER", width/2, height/2);
 			noLoop();
             
             
@@ -125,8 +124,8 @@ function draw() {
 
         // detect all lasers
         for (let j = 0; j < lasers.length; j++) {
-            if (virus[i].collide(lasers[j])) {
-               virus[i].died = true;
+            if (asteroids[i].collide(lasers[j])) {
+                asteroids[i].died = true;
                 lasers[j].died = true;
                 
             }
@@ -139,10 +138,10 @@ function draw() {
 
     }
 
-    // clean up dead virus and lasers
-    for (let i = 0; i < virus.length; i++) {
-        if (virus[i].died) {
-            virus[i].remove(virus);
+    // clean up dead asteroids and lasers
+    for (let i = 0; i < asteroids.length; i++) {
+        if (asteroids[i].died) {
+            asteroids[i].remove(asteroids);
         }
     }
 
@@ -164,7 +163,7 @@ function draw() {
 	/* user display */
 	
 	// score
-	fill('yellow');
+	fill('orange');
 	textSize(40);
 	text('Score: ' + score, width - 200, 40);
 	
@@ -174,6 +173,9 @@ function draw() {
 		var x = 20 + i * 30;
 		rect(x, 20, 20, 20);
 	}
+
+
+}
 
 
 }
