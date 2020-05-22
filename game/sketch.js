@@ -1,6 +1,5 @@
 /*
-	mmp 310 week 9
-	spaceship object
+	final 
 */
 
 
@@ -16,7 +15,7 @@ var lives = 3;
 
 var spaceship;
 
-var asteroids = [];
+var virus = [];
 
 var upgrade = [];
 
@@ -24,7 +23,7 @@ var lasers = [];
 
 var laserSize = 1;
 
-var laserColor = "red";
+var laserColor = "white";
 
 //var astriodProb = 98;
 var laserCounter = 0; // counts frame each time
@@ -68,9 +67,9 @@ function draw() {
     if (random(100) > 97) {
         // create an asteroid
         if (random(100) > 95)
-            asteroids.push(new Asteroid());
+            virus.push(new Virus());
         else
-            asteroids.push(new Asteroid());
+            virus.push(new Virus());
     }
 
 
@@ -142,9 +141,9 @@ function draw() {
     }
 
     // clean up dead asteroids and lasers
-    for (let i = 0; i < asteroids.length; i++) {
-        if (asteroids[i].died) {
-            asteroids[i].remove(asteroids);
+    for (let i = 0; i < virus.length; i++) {
+        if (virus[i].died) {
+            virus[i].remove(virus);
         }
     }
 
