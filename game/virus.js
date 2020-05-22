@@ -1,8 +1,8 @@
 /*
-	asteroid class
+	virus class
 */
 
-class Asteroid extends Entity {
+class virus extends Entity {
 	constructor() {
         
         super(random(width), -100); 
