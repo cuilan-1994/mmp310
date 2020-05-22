@@ -1,15 +1,13 @@
 /*
-	mmp 310 week 9
-	spaceship object
+	mmp 310 final object
 */
 
 
 
-	// score
-// one point for every asteroid destroyed
+	
 var score = 0;
 
-// player lives
+
 var lives = 3;
 	
 
@@ -24,17 +22,15 @@ var lasers = [];
 
 var laserSize = 1;
 
-var laserColor = "red";
+var laserColor = "white";
 
-//var astriodProb = 98;
-var laserCounter = 0; // counts frame each time
-//var laserRed = 0;
 
+var laserCounter = 0; 
 
 
 
+//image
 function preload() {
-    // if you have images
 
     img1 = loadImage("virus.png");
     img2 = loadImage("street.jpg");
@@ -93,8 +89,8 @@ function draw() {
             // upgrade applied
 
 
-            //			laserRed += 20;
-            laserColor = "yellow";
+            //			
+            laserColor = "white";
             laserSize += 2;
             upgrade[i].died = true;
         }
@@ -112,20 +108,19 @@ function draw() {
 
 
 
-        // collision with spaceship
+        
         if (asteroids[i].collide(spaceship)) {
             // end game
             textAlign(CENTER, CENTER);
-            textSize(100);
-            fill('red');
-			text("GAME OVER", width/2, height/2);
+            textSize(80);
+            fill('white');
+			text("you died", width/2, height/2);
 			noLoop();
             
             
 			
         }
 
-        // detect all lasers
         for (let j = 0; j < lasers.length; j++) {
             if (asteroids[i].collide(lasers[j])) {
                 asteroids[i].died = true;
@@ -141,7 +136,7 @@ function draw() {
 
     }
 
-    // clean up dead asteroids and lasers
+    // clean up dead virs and lasers
     for (let i = 0; i < asteroids.length; i++) {
         if (asteroids[i].died) {
             asteroids[i].remove(asteroids);
@@ -165,10 +160,7 @@ function draw() {
 
 	/* user display */
 	
-	// score
-	fill('orange');
-	textSize(40);
-	text('Score: ' + score, width - 200, 40);
+	
 	
 	// lives
 //	text('Lives: ' + lives, 70, 20);
