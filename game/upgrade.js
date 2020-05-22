@@ -13,11 +13,9 @@ class Upgrade extends Entity {
 	}
 	
 	display() {
-<<<<<<< HEAD
-	image(img4, this.x, this.y, this.size, this.size);
-=======
+
 		image(img4, this.x, this.y, this.size, this.size); 
->>>>>>> e4ae3a9671bf751a66ef1ad9128e8310da750ba2
+
 	}
 	
 
