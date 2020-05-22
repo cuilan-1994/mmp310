@@ -8,7 +8,7 @@ class Asteroid extends Entity {
         super(random(width), -100); 
 		this.speed = {
 			x: random(-1, 1),
-			y: random(10)
+			y: random(5)
 		};  
 	}
 	

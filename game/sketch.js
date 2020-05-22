@@ -36,9 +36,9 @@ var laserCounter = 0; // counts frame each time
 function preload() {
     // if you have images
 
-    img1 = loadImage("cans.png");
-    img2 = loadImage("underwater.jpg");
-    img3 = loadImage("sub.png");
+    img1 = loadImage("virus.png");
+    img2 = loadImage("street.jpg");
+    img3 = loadImage("kim.png");
 }
 
 
@@ -94,7 +94,7 @@ function draw() {
 
 
             //			laserRed += 20;
-            laserColor = "yellow";
+            laserColor = "white";
             laserSize += 2;
             upgrade[i].died = true;
         }
@@ -117,8 +117,8 @@ function draw() {
             // end game
             textAlign(CENTER, CENTER);
             textSize(100);
-            fill('red');
-			text("GAME OVER", width/2, height/2);
+            fill('yellow');
+			text("die", width/2, height/2);
 			noLoop();
             
             
@@ -166,7 +166,7 @@ function draw() {
 	/* user display */
 	
 	// score
-	fill('orange');
+	fill('yellow');
 	textSize(40);
 	text('Score: ' + score, width - 200, 40);
 	
