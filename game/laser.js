@@ -8,7 +8,7 @@ class Laser extends Entity {
     
 	constructor(x, y) {
          super(spaceship.x + x, spaceship.y + y);
-        this.height = 15;
+        this.height = 25;
         this.width = 10;
         
         this.speed.y = -10; 

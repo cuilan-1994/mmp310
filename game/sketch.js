@@ -1,14 +1,18 @@
 /*
 	mmp 310 week 9
-	
+	spaceship object
 */
 
 
 
 	// score
+// one point for every asteroid destroyed
 var score = 0;
+
+// player lives
 var lives = 3;
 	
+
 
 var spaceship;
 
@@ -32,7 +36,6 @@ var laserCounter = 0; // counts frame each time
 function preload() {
     // if you have images
 
-   
     img1 = loadImage("virus.png");
     img2 = loadImage("street.jpg");
     img3 = loadImage("kim.png");
@@ -173,9 +176,6 @@ function draw() {
 		var x = 20 + i * 30;
 		rect(x, 20, 20, 20);
 	}
-
-
-}
 
 
 }
