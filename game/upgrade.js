@@ -13,9 +13,7 @@ class Upgrade extends Entity {
 	}
 	
 	display() {
-		fill("red");
-		noStroke();
-		ellipse(this.x, this.y, this.size);
+		image(img4, this.x, this.y, this.size, this.size); 
 	}
 	
 
