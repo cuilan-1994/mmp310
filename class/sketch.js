@@ -61,7 +61,7 @@ function setup() {
 function draw() {
     
     
-   background(skyHue, 53, 79);
+   background('lightblue');
 
 	// land
 	fill('#e6d5a8');
