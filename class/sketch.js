@@ -61,15 +61,14 @@ function setup() {
 function draw() {
     
     
-    background('yellow');
+   background(skyHue, 53, 79);
 
-	
-	noStroke();
-	fill('sandybrown');
-	rect(0, height/2, width, height/2);
+	// land
+	fill('#e6d5a8');
+	rect(0, landY, width, height);
 
-	
-	fill('darkblue');
+	// road
+	fill('#92979c');
 	rect(0, height * 2/3, width, height/3);
 
 	// trees
