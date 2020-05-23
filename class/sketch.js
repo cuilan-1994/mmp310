@@ -85,8 +85,8 @@ function draw() {
 
 	// draw brid
 	for (let i = 0; i < numBrids; i++) {
-		minis[i].draw();
-		minis[i].update();
+		brids[i].draw();
+		brids[i].update();
 	}
 
     
