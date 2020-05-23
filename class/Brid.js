@@ -1,4 +1,4 @@
-class Cloud extends Thing {
+class Brid extends Thing {
 	update() {
 		this.x += 1;
 
