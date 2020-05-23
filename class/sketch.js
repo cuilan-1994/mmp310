@@ -5,7 +5,6 @@ var miniImage;
 var treeImage;  
 var bridImage;
 
-
 function preload() {
 
 	 miniImage = loadImage('mini.png');
@@ -13,59 +12,81 @@ function preload() {
     bridImage= loadImage('brid.png');
                    
 }
+var  brids=[];
+var numBrids=7;
+
+var minis=[];
+var numMinis= 3;
+
+var  trees =[];
+var numTrees= 3;
 
 
-var mini=[];
-var nummini= 2;
-
-var  tree =[];
-var numtree= 3;
-
-var  brid=[];
-var nunbrid=7;
- 
+//brids
 function setup() {
 	createCanvas(windowWidth, windowHeight);
-	
-}
+		let x = -50;
+	for (let i = 0; i < numBrids; i++) {
+		let y = random(height/3);
 
-function mousePressed() {
-	setting();
+		let brids = new Brid(x, y, bridImage);
+		brids.push(brid);
+		
+		
+		x += width/numBrids + random(-100, 100);
+}
+    //tree
+    let y = 250;
+	for (let i = 0; i < numTrees; i++) {
+		
+		let x = random(treeImage.width, width - treeImage.width);
+		
+		let tree = new Thing(x, y, treeImage);
+		trees.push(tree);
+
+		y += 30;
+	}
+    
+   // 
+    
+    for (let i = 0; i < numMinis; i++) {
+		let mini = new Mini(miniImage);
+		minis.push(mini);
+	}
 }
 
 
 function draw() {
-  
+    
+    
+    background('lightblue');
 
-	// draw characters
-	image(miniL, miniLX, miniLY);
-	image(miniR, miniRX, miniRY);
-
-	
-}
-function setting() {
-	// background colors
-	background('lightblue');
-
+	// beach color
 	noStroke();
 	fill('sandybrown');
 	rect(0, height/2, width, height/2);
 
-	
+	// ocean 
+	fill('darkblue');
+	rect(0, height * 2/3, width, height/3);
+
 	// trees
-	for (let x = 100; x <= width; x += 400) {
-		image(tree, random(width), height/2 - 150 + x/20);
+	for (let i = 0; i < numTrees; i++) {
+		trees[i].draw();
 	}
 
-	
-
-	// brid
-	for (let x = -50; x <= width; x += 200) {
-		let y = random(height/3);
-		let offset = random(-100, 100);
-		image(brid, x + offset, y);
-
-		// image(cloudImage, random(width), random(height));
+	// mini
+	for (let i = 0; i < numMinis; i++) {
+		minis[i].draw();
+		minis[i].update();
 	}
 
-}
+	// draw brid
+	for (let i = 0; i < numBrids; i++) {
+		minis[i].draw();
+		minis[i].update();
+	}
+
+    
+ }
+
