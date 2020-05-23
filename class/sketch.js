@@ -29,7 +29,7 @@ function setup() {
 	for (let i = 0; i < numBrids; i++) {
 		let y = random(height/3);
 
-		let brids = new Brid(x, y, bridImage);
+		let brid = new Brid(x, y, bridImage);
 		brids.push(brid);
 		
 		
