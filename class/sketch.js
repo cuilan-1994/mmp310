@@ -47,7 +47,7 @@ function setup() {
 		y += 30;
 	}
     
-   // 
+   // mini
     
     for (let i = 0; i < numMinis; i++) {
 		let mini = new Mini(miniImage);

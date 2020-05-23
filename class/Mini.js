@@ -1,4 +1,4 @@
-class Fish extends Thing {
+class Mini extends Thing {
 	constructor(img) {
 
 		let x = random(width);
@@ -19,10 +19,9 @@ class Fish extends Thing {
 			this.x = -this.img.width;
 		}
 
-		// contain fish y 
+		// contain mini y 
 		if (this.y < height * 2/3 ||
-			this.y > height - fishImage.height) {
+			this.y > height - miniImage.height) {
 			this.ySpeed *= -1;
 		}
 	}
-}
