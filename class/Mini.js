@@ -25,3 +25,4 @@ class Mini extends Thing {
 			this.ySpeed *= -1;
 		}
 	}
+}
