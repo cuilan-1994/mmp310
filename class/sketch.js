@@ -1,5 +1,4 @@
 
-//class
   
 var miniImage;
 var treeImage;  
