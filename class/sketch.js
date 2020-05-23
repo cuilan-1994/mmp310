@@ -61,11 +61,11 @@ function setup() {
 function draw() {
     
     
-   background('lightblue');
+   background('195, 53, 79');
 
 	// land
 	fill('#e6d5a8');
-	rect(0, landY, width, height);
+	rect(0, height/2;, width, height);
 
 	// road
 	fill('#92979c');
