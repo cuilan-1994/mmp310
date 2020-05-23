@@ -60,11 +60,11 @@ function setup() {
 function draw() {
     
     
-   background('195, 53, 79');
+   background('#98d9fa');
 
 	// land
 	fill('#e6d5a8');
-	rect(0, height/2;, width, height);
+	rect(0, height/2, width, height/2);
 
 	// road
 	fill('#92979c');
