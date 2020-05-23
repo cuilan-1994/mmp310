@@ -22,9 +22,11 @@ var  trees =[];
 var numTrees= 3;
 
 
-//brids
+
 function setup() {
 	createCanvas(windowWidth, windowHeight);
+    
+    //brid
 		let x = -50;
 	for (let i = 0; i < numBrids; i++) {
 		let y = random(height/3);
@@ -59,14 +61,14 @@ function setup() {
 function draw() {
     
     
-    background('lightblue');
+    background('yellow');
 
-	// beach color
+	
 	noStroke();
 	fill('sandybrown');
 	rect(0, height/2, width, height/2);
 
-	// ocean 
+	
 	fill('darkblue');
 	rect(0, height * 2/3, width, height/3);
 
